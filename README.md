@@ -1,4 +1,4 @@
-# URLSafeB64-ObjC
+# URLSafeB64-ObjectiveC
 
 #### Stuggling with URL Safe Base64 encoding?
 I know it is a pain and you need a __reliable__ class that can do the quick job! Here is my extended help!!
