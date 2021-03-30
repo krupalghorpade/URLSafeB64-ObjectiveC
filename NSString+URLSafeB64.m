@@ -1,11 +1,37 @@
 //
-//  URLSafeB64.m
+//  NSString+URLSafeB64.m
 //  URLSafeB64
 //
-//  Created by Krupal Ghorpade on 29/03/21.
+//  Created by Krupal Ghorpade on 30/03/21.
 //
 
-#import "URLSafeB64.h"
+#import "NSString+URLSafeB64.h"
+
+@implementation  NSString(URLSafeB64)
+
+- (NSString *)urlSafeB64Encoded{
+    NSData *data = [self dataUsingEncoding:NSUTF8StringEncoding];
+    size_t outputLength = 0;
+    char *outputBuffer =
+    NewBase64Encode([data bytes], [data length], false, &outputLength,YES);
+    
+    NSString *base64EncodedString = [[NSString alloc]
+                        initWithBytes:outputBuffer
+                        length:outputLength
+                        encoding:NSASCIIStringEncoding];
+    free(outputBuffer);
+    return base64EncodedString;
+}
+
+- (NSString *)urlSafeB64Decoded {
+    NSData *data = [self dataUsingEncoding:NSASCIIStringEncoding];
+
+    size_t outputLength;
+    void *outputBuffer = NewBase64Decode([data bytes], [data length], &outputLength, YES);
+    NSData *result = [NSData dataWithBytes:outputBuffer length:outputLength];
+    free(outputBuffer);
+    return [[NSString alloc]initWithData:result encoding:NSUTF8StringEncoding];
+}
 
 //
 // Mapping from 6 bit pattern to ASCII character.
@@ -231,30 +257,5 @@ char *NewBase64Encode(
     }
     return outputBuffer;
 }
-
-@implementation URLSafeB64
-
-+ (NSData *)dataFromBase64String:(NSString *)base64EncodedString urlSafe:(BOOL)isUrlSafe {
-    NSData *data = [base64EncodedString dataUsingEncoding:NSASCIIStringEncoding];
-    size_t outputLength;
-    void *outputBuffer = NewBase64Decode([data bytes], [data length], &outputLength, isUrlSafe);
-    NSData *result = [NSData dataWithBytes:outputBuffer length:outputLength];
-    free(outputBuffer);
-    return result;
-}
-
-+ (NSString *)base64EncodedStringWithData:(NSData *)data urlSafe:(BOOL)isUrlSafe {
-    size_t outputLength = 0;
-    char *outputBuffer =
-    NewBase64Encode([data bytes], [data length], false, &outputLength,isUrlSafe);
-    
-    NSString *base64EncodedString = [[NSString alloc]
-                        initWithBytes:outputBuffer
-                        length:outputLength
-                        encoding:NSASCIIStringEncoding];
-    free(outputBuffer);
-    return base64EncodedString;
-}
-
 
 @end
