@@ -9,8 +9,8 @@ I know it is a pain and you need a __reliable__ class that can do the quick job!
 - Helps Swift developers too, via my dedicated repo: https://github.com/krupalghorpade/URLSafeB64-Swift
 
 #### Quick look
+![Base64ObjC](https://user-images.githubusercontent.com/3656992/113045965-19a4a880-91bd-11eb-887a-b26e6ea416d1.gif)
 
-https://user-images.githubusercontent.com/3656992/113045627-b31f8a80-91bc-11eb-8705-fe0e5c1e86db.mp4
 
 
 
