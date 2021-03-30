@@ -8,6 +8,12 @@ I know it is a pain and you need a __reliable__ class that can do the quick job!
 - It helps with URL Safe string encodings
 - Helps Swift developers too, via my dedicated repo: https://github.com/krupalghorpade/URLSafeB64-Swift
 
+#### Quick look
+
+https://user-images.githubusercontent.com/3656992/113045627-b31f8a80-91bc-11eb-8705-fe0e5c1e86db.mp4
+
+
+
 
 #### Wanna contribute?
 - Fork and open up a pull request and I will make sure to respond _ASAP_
