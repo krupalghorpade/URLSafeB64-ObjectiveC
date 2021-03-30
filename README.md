@@ -5,8 +5,7 @@ I know it is a pain and you need a __reliable__ class that can do the quick job!
 
 
 #### Features
-- Helps with URL Safe & Un-Safe encodings
-- Helps convert to NSData and vice-versa
+- It helps with URL Safe string encodings
 - Helps Swift developers too, via my dedicated repo: https://github.com/krupalghorpade/URLSafeB64-Swift
 
 
